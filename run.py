@@ -18,5 +18,6 @@ cookies = dict(session=session)
 
 r = requests.get(f'https://adventofcode.com/2021/day/{day}/input', cookies=cookies)
 
-print(r.text)
+mod = __import__(f"day{day:02}")
 
+mod.main(r.text)
