@@ -21,7 +21,21 @@ def part1(input:str):
 
     print(position * depth)
 
+def part2(input: str):
+    orders = map(__parseOrder, input.splitlines())
+    position = 0
+    aim = 0
+    depth = 0
 
+    for order in orders:
+        if order[0] == 'up':
+            aim -= order[1]
+        elif order[0] == 'down':
+            aim += order[1]
+        else:
+            position += order[1]
+            depth += aim * order[1]
+    print(position * depth)
 
 def main(input: str):
-    part1(input)
+    part2(input)
